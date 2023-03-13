@@ -1,0 +1,12 @@
+/** StoryStore UI **/
+
+/* Hide Category Image in Category Page */
+.category-view .category-image {
+    display: none;
+}
+.pagebuilder-banner-wrapper {
+    overflow: hidden;
+  }
+  div[data-content-type] {
+    position: relative;
+}
