@@ -190,32 +190,38 @@
 	
 	<!-- News Single Content -->
 	<div class="main-content container">
-		<div style="min-width:1000px;height:200px;background-color:yellow;">
-
+	<div>
     <button id="create-project-button">Create project</button>
     <img id="image-container" height="420" width="420" />
-    
 
-    <script src="https://sdk.cc-embed.adobe.com/v1/CCEverywhere.js"></script>
+
     <script type="text/javascript">
     
-  window.ccEverywhere = window.CCEverywhere.initialize({
-  clientId:"7437e9de419a4b77aa024f1aa4a9ee3e",
-  appName: 'Project 255',
-  appVersion: { major: 1, minor: 0 },
-  platformCategory: 'web',
-  redirectUri:"https://sandbox-paris-g45ceey-dyxfo4fhhbkpa.demo.magentosite.cloud/" 
-}); 
+   var CDN_URL = "https://sdk.cc-embed.adobe.com/v2/CCEverywhere.js"; 
+((document, url) => {
+  const script = document.createElement("script");
+  script.src = url;
+  script.onload = async () => {
+    if (!window.CCEverywhere) {
+      return;
+    }
+    const ccEverywhere = await window.CCEverywhere.initialize({
+      clientId: "7437e9de419a4b77aa024f1aa4a9ee3e",
+      appName: 'Project 255',
+      appVersion: { major: 1, minor: 0 },
+      platformCategory: 'web',
+      redirectUri: "https://sandbox-paris-g45ceey-dyxfo4fhhbkpa.demo.magentosite.cloud/"
+    });
+
 
          /* Initialize projectId to null until it gets set by onPublish callback */
         var projectId = null;
         
         var imageContainer = document.getElementById("image-container");
-        const createButton = document.getElementById("create-project-button");
 
-    
+
+        const createButton = document.getElementById("create-project-button");
         createButton.addEventListener('click', () => {
-            console.log("button is clicked");
             const createDesignCallback = {
                 onCancel: () => {},
                 onPublish: (publishParams) => {
@@ -229,21 +235,22 @@
             };
             
             ccEverywhere.createDesign(
-            
                 {
                     callbacks: createDesignCallback, 
                     outputParams: {
                         outputType: "base64",
                     }
                 }
-         
             );  
         });
-   
+          };
+  document.body.appendChild(script);
+})(document, CDN_URL);
     </script>
-
-
 </div>
+
+
+
 		
 		<div class="col-md-8 news-single">
 			<div id="bl-featured">
