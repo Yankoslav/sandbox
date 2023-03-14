@@ -49,20 +49,6 @@
 
 
 
-
-        <div class="message global noscript">
-            <div class="content">
-                <p>
-                    <strong>JavaScript seems to be disabled in your browser.</strong>
-                    <span>
-                        For the best experience on our site, be sure to turn on Javascript in your browser.                    </span>
-                </p>
-            </div>
-        </div>
-
-
-
-
 <header class="page-header"><div class="panel wrapper"><div class="panel header">
     <div class="switcher store switcher-store" data-ui-id="store-switcher" id="switcher-store">
         <strong class="label switcher-label"><span>Select Store</span></strong>
@@ -611,66 +597,7 @@ margin-top:2px}</style><div class="fotorama-item fotorama fotorama1678727362620"
 <div class="product attribute description">
 
             <div class="main-content container">
-    <div>
-    <button id="create-project-button">Create project</button>
-    <img id="image-container" height="420" width="420" />
-
-
-    <script type="text/javascript">
-    
-   var CDN_URL = "https://sdk.cc-embed.adobe.com/v2/CCEverywhere.js"; 
-((document, url) => {
-  const script = document.createElement("script");
-  script.src = url;
-  script.onload = async () => {
-    if (!window.CCEverywhere) {
-      return;
-    }
-    const ccEverywhere = await window.CCEverywhere.initialize({
-      clientId: "7437e9de419a4b77aa024f1aa4a9ee3e",
-      appName: 'Project 255',
-      appVersion: { major: 1, minor: 0 },
-      platformCategory: 'web',
-      redirectUri: "https://sandbox-paris-g45ceey-dyxfo4fhhbkpa.demo.magentosite.cloud/"
-    });
-
-
-         /* Initialize projectId to null until it gets set by onPublish callback */
-        var projectId = null;
-        
-        var imageContainer = document.getElementById("image-container");
-
-
-        const createButton = document.getElementById("create-project-button");
-        createButton.addEventListener('click', () => {
-            const createDesignCallback = {
-                onCancel: () => {},
-                onPublish: (publishParams) => {
-                    const localData = { project: publishParams.projectId, image: publishParams.asset.data };
-                    imageContainer.src = localData.image;
-                    projectId = localData.project;
-                },
-                onError: (err) => {
-                    console.error('Error received is', err.toString());
-                },
-            };
-            
-            ccEverywhere.createDesign(
-                {
-                    callbacks: createDesignCallback, 
-                    outputParams: {
-                        outputType: "base64",
-                    }
-                }
-            );  
-        });
-          };
-  document.body.appendChild(script);
-})(document, CDN_URL);
-    </script>
-</div>
-
-
+   
 
         
         <div class="col-md-8 news-single">
@@ -1100,6 +1027,65 @@ for (var i = 0; i < prodImageContainersWrappers.length; i++) {
                                     </strong>
 
                                     <div class="price-box price-final_price" data-role="priceBox" data-product-id="17" data-price-box="product-id-17">
+                                            <div>
+    <button id="create-project-button">Create project</button>
+    <img id="image-container" height="420" width="420" />
+
+
+    <script type="text/javascript">
+    
+   var CDN_URL = "https://sdk.cc-embed.adobe.com/v2/CCEverywhere.js"; 
+((document, url) => {
+  const script = document.createElement("script");
+  script.src = url;
+  script.onload = async () => {
+    if (!window.CCEverywhere) {
+      return;
+    }
+    const ccEverywhere = await window.CCEverywhere.initialize({
+      clientId: "7437e9de419a4b77aa024f1aa4a9ee3e",
+      appName: 'Project 255',
+      appVersion: { major: 1, minor: 0 },
+      platformCategory: 'web',
+      redirectUri: "https://sandbox-paris-g45ceey-dyxfo4fhhbkpa.demo.magentosite.cloud/"
+    });
+
+
+         /* Initialize projectId to null until it gets set by onPublish callback */
+        var projectId = null;
+        
+        var imageContainer = document.getElementById("image-container");
+
+
+        const createButton = document.getElementById("create-project-button");
+        createButton.addEventListener('click', () => {
+            const createDesignCallback = {
+                onCancel: () => {},
+                onPublish: (publishParams) => {
+                    const localData = { project: publishParams.projectId, image: publishParams.asset.data };
+                    imageContainer.src = localData.image;
+                    projectId = localData.project;
+                },
+                onError: (err) => {
+                    console.error('Error received is', err.toString());
+                },
+            };
+            
+            ccEverywhere.createDesign(
+                {
+                    callbacks: createDesignCallback, 
+                    outputParams: {
+                        outputType: "base64",
+                    }
+                }
+            );  
+        });
+          };
+  document.body.appendChild(script);
+})(document, CDN_URL);
+    </script>
+</div>
+
     
 
 <span class="price-container price-final_price tax weee">
